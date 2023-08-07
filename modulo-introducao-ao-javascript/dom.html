@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        .destaque {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="cabecalho">Manipulando o DOM</h1>
+    <p id="paragrafo">Esse é um parágrafo</p>
+    <button id="botao-destaque">Aplicar destaque</button>
+    <ul id="lista-cores">
+        <li>Vermelho</li>
+        <li>Verde</li>
+        <li>Azul</li>
+    </ul>
+    <form id="form-nome">
+        <label for="input-nome">Digite seu nome:</label>
+        <input type="text" id="input-nome">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        // Acessando elementos do DOM
+        const cabecalho = document.getElementById('cabecalho');
+        const paragrafo = document.querySelector('#paragrafo');
+        const listaCores = document.querySelectorAll('#lista-cores li');
+        const botaoDestaque = document.getElementById('botao-destaque');
+        const formNome = document.getElementById('form-nome');
+        const inputNome = document.getElementById('input-nome');
+
+        // Modificando conteúdo e estilos
+        cabecalho.innerHTML = 'Cabeçalho atualizado <i>de verdade</i>';
+        paragrafo.textContent = 'Texto do parágrafo atualizado <i>de verdade</i>';
+        botaoDestaque.addEventListener('click', () => {
+            paragrafo.style.color = 'red';
+            listaCores[1].classList.add('destaque');
+        });
+
+        // Manipulando elementos
+        const novoItem = document.createElement('li');
+        novoItem.textContent = 'Amarelo';
+        listaCores[0].insertAdjacentElement('beforebegin', novoItem);
+
+        listaCores[2].remove();
+
+        // Eventos e Listeners
+        listaCores.forEach(item => {
+            item.addEventListener('click', () => {
+                item.style.color = 'green';
+            });
+        });
+
+        // Trabalhando com Formulários
+        formNome.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const nome = inputNome.value;
+            alert(`Olá, ${nome}! Formulário enviado com sucesso.`);
+        });
+    </script>
+</body>
+</html>
