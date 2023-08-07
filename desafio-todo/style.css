@@ -1,0 +1,45 @@
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#form-add-todo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#form-add-todo input {
+  flex: 1;
+  border: 1px solid black;
+  height: 2rem;
+  padding: 0 0.5rem;
+}
+
+#form-add-todo button {
+  background: #F4B200;
+  border: none;
+  width: 3rem;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+  word-wrap: break-word;
+  border: 1px solid #EBEBEC;
+}
+
+#todo-list:empty {
+  border: none;
+}
+
+#todo-list:empty::after {
+  content: 'Nothing to do today...';
+}
+
+#todo-list li {
+  padding: 0.5rem 1rem;
+}
+
+#todo-list li:nth-child(odd) {
+  background-color: #F6F6F6;
+}
